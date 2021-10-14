@@ -1,6 +1,7 @@
 package com.example.autocomplete
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.autocomplete.databinding.ActivityMainBinding
 
@@ -22,6 +23,14 @@ class MainActivity : AppCompatActivity() {
         binding.autoCompleteTextView.setAdapter(adapter2)
 
 
+        binding.autoCompleteTextView.setOnItemClickListener{ parent, view,position,id ->
+
+         var selected =    parent.getItemAtPosition(position) as Empleado
+
+            binding.editTextTextPersonName.setText(selected.correo)
+           // Toast.makeText(this,selected.correo,Toast.LENGTH_SHORT).show()
+
+        }
 
     }
 }
